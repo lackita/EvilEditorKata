@@ -10,7 +10,7 @@
      "Navigation",
    ];
    function display_next_feature() {
-     $("#features ol").add("li").val(features.pop());
+     $("#features ol").append("<li>" + features.pop() + "</li>");
    }
   </script>
   <body>
