@@ -8,7 +8,9 @@
      "Toggle between inserting/deleting before and after the cursor",
      "Undo and redo",
      "Navigation",
-   ];
+   ].sort(function() {
+     return .5 - Math.random();
+   });
    function display_next_feature(button) {
      $("#features ol").append("<li>" + features.pop() + "</li>");
      if (features.length == 0) {
