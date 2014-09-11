@@ -9,8 +9,11 @@
      "Undo and redo",
      "Navigation",
    ];
-   function display_next_feature() {
+   function display_next_feature(button) {
      $("#features ol").append("<li>" + features.pop() + "</li>");
+     if (features.length == 0) {
+       $(button).remove();
+     }
    }
   </script>
   <body>
@@ -23,6 +26,6 @@
       a buffer and a cursor, don't even worry about a graphical component.
       Click the button below once you're ready for your first feature.</p>
     <div id="features"><ol></ol></div>
-    <button onclick="display_next_feature()">Give me a feature</button>
+    <button onclick="display_next_feature(this)">Give me a feature</button>
   </body>
 </html>
