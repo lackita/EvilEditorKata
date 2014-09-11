@@ -1,0 +1,28 @@
+<html>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+   features = [
+     "Insert a string",
+     "Delete a character",
+     "Support 2 cursors",
+     "Toggle between inserting/deleting before and after the cursor",
+     "Undo and redo",
+     "Navigation",
+   ];
+   function display_next_feature() {
+     $("#features ol").add("li").val(features.pop());
+   }
+  </script>
+  <body>
+    <h1>Evil Text Editor Kata</h1>
+    <p>You've been asked to build a text editor, but the client can only afford
+      to pay for six features.  They can't make up their mind though, so they
+      won't tell you what each feature is until you've completed the previous
+      one.</p>
+    <p>All you know at the beginning of the project is that the editor will have
+      a buffer and a cursor, don't even worry about a graphical component.
+      Click the button below once you're ready for your first feature.</p>
+    <div id="features"><ol></ol></div>
+    <button onclick="display_next_feature()">Give me a feature</button>
+  </body>
+</html>
