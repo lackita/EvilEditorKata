@@ -1,16 +1,24 @@
 <html>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script>
-   features = [
+   starting_features = [
      "Insert a string",
      "Delete a character",
+     "Navigation",
+   ].sort(randomize);
+   starting_feature = starting_features.pop();
+
+   features = [
      "Support 2 cursors",
      "Toggle between inserting/deleting before and after the cursor",
      "Undo and redo",
-     "Navigation",
-   ].sort(function() {
-     return .5 - Math.random();
-   });
+   ].concat(starting_features).sort(randomize);
+   features.push(starting_feature);
+
+   function randomize() {
+	 return .5 - Math.random();
+   }
+
    function display_next_feature(button) {
      $("#features ol").append("<li>" + features.pop() + "</li>");
      if (features.length == 0) {
@@ -20,13 +28,17 @@
   </script>
   <body>
     <h1>Evil Text Editor Kata</h1>
-    <p>You've been asked to build a text editor, but the client can only afford
-      to pay for six features.  They can't make up their mind though, so they
-      won't tell you what each feature is until you've completed the previous
-      one.</p>
-    <p>All you know at the beginning of the project is that the editor will have
-      a buffer and a cursor, don't even worry about a graphical component.
-      Click the button below once you're ready for your first feature.</p>
+    <p>You've been asked to build a single line text editor, but the
+      client can only afford to pay for six features.  They can't make
+      up their mind though, so they won't tell you what each feature
+      is until you've completed the previous one.  The purpose of this
+      kata is to embrace change, so keep your design simple
+      enough that it can respond to this change easily.</p>
+    <p>All you know at the beginning of the project is that the editor
+      will have a buffer and a cursor, don't worry about a graphical
+      component.  You can assume that the buffer has some starting
+      text.  Click the button below once you're ready for your first
+      feature.</p>
     <div id="features"><ol></ol></div>
     <button onclick="display_next_feature(this)">Give me a feature</button>
   </body>
